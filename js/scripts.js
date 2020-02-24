@@ -1,26 +1,22 @@
-console.log(document)
-if (document.fullscreenEnabled) {
-    handleFullscreen();
-} else if (document.mozFullscreenEnabled) {
-    handleFullscreen('moz');
+addFullscreenTriggerEvents('.trigger');
 
-} else if (document.webkitFullscreenEnabled) {
-    handleFullscreen('webkit');
-} else {
-    alert('Your browser is not supported.')
-}
-
-function handleFullscreen(prefix) {
-    const fullscreenEls = document.querySelectorAll('.trigger');
+function addFullscreenTriggerEvents(selector) {
+    const fullscreenEls = document.querySelectorAll(selector);
     fullscreenEls.forEach(function (el) {
         el.addEventListener('click', function () {
-            if (!prefix) {
-                el.requestFullscreen();
-            } else if (prefix === 'webkit') {
-                el.webkitRequestFullscreen();
-            } else if (prefix === 'webkit') {
-                el.mozRequestFullscreen();
-            }
-        })
-    })
+            launchFullscreen(el);
+        });
+    });
+}
+
+function launchFullscreen(el) {
+    if (el.requestFullscreen) {
+        el.requestFullscreen();
+    } else if (el.mozRequestFullScreen) {
+        el.mozRequestFullScreen();
+    } else if (el.webkitRequestFullscreen) {
+        el.webkitRequestFullscreen();
+    } else if (el.msRequestFullscreen) {
+        el.msRequestFullscreen();
+    }
 }
