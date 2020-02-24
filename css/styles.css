@@ -1,0 +1,22 @@
+body {
+    background:#f2f2f2;
+    font-family: Helvetica, Arial, Sans-Serif;
+    font-size:15px;
+    text-align: center;
+}
+.title {
+    font-size:1.7em;
+    margin:1em 0;
+}
+.container {
+    margin:1em;
+    display:flex;
+    flex-direction: row;
+}
+.box {
+    flex-grow:1;
+    position: relative;
+}
+.trigger {
+height:50px;
+}
