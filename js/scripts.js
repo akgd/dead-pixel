@@ -18,5 +18,7 @@ function launchFullscreen(el) {
         el.webkitRequestFullscreen();
     } else if (el.msRequestFullscreen) {
         el.msRequestFullscreen();
+    } else {
+        alert('Browser not supported.')
     }
 }
