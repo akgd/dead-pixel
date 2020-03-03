@@ -15,6 +15,7 @@ body {
 }
 .box {
     flex-grow:1;
+    width:25%;
     position: relative;
 }
 .trigger {
